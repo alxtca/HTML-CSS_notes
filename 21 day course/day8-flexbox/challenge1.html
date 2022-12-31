@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+////// For this challenge ///////
+
+- You will have to modify the HTML
+
+- You can add new classes in the HTML
+  if you need to
+
+// Requirements
+1. The headings in the first row must be
+   a different color
+2. The two .col at the bottom must go next
+   to one another as per the design specs
+   provided
+3. The section at the bottom should have
+   a dark background color and a different
+   color of text
+4. I've removed the "gap" that I created 
+   during the demo, so you'll have to 
+   add it back in
+*/
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.3rem; /*all font. relative to root font-size which is 16px*/
+      }
+      h1 {
+        font-size: 3rem;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1050px;
+        margin: 0 auto;
+      }
+
+      .intro_background {
+        background: #23424a;
+        color: white;
+        padding: 100px 0;
+      }
+      .footer_background {
+        background: #447f8e;
+        color: white;
+        padding: 20px 0;
+      }
+
+      /* flexbox layout */
+      .row {
+        display: flex;
+        gap: 1em;
+        justify-content: space-between;
+      }
+      .col {
+        /*         display: flex;
+        flex-direction: column; */
+        width: 100%; /* flex: 1*/
+      }
+
+      .intro-content {
+        width: 70%;
+      }
+
+      .btn {
+        display: inline-block; /*use on btn made of a-tag*/
+        background: #38cfd9;
+        border-radius: 100px;
+        padding: 1.2rem 3.2rem;
+        /*margin: 1rem 0px; use margin on paragraph rathen than button to make button reusable*/
+        font-weight: 900;
+        color: #23424a;
+        text-decoration: none;
+      }
+      .btn:hover,
+      .btn:focus {
+        opacity: 0.7;
+      }
+
+      .img_header {
+        width: 30%;
+        align-self: flex-start;
+      }
+      img { /* this will alloud image to shrink. img must be inside flex item div*/
+        width: 100%;
+      }
+
+      .col-3 {
+        padding: 3em 0;
+      }
+      .col-3 h2 {
+        /* another way, define header colors for a specific section */
+        color: #87629a;
+      }
+      .h2_colored {
+        /* one way to give certain headers a color, good for reusability*/
+        /*  color: #87629a; */
+      }
+
+      .col-2 {
+        text-align: center;
+        background: #136c72;
+        color: white;
+        padding: 3em 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="intro_background">
+      <div class="container row">
+        <div class="intro-content">
+          <h1>Responsive layouts don’t have to be a struggle</h1>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam ratione rerum, consectetur ipsum nobis dolor libero officiis eaque a! Illo debitis excepturi officia est qui. Nisi ex beatae ea ipsum.</p>
+          <div>
+            <a href="#" class="btn">I WANT TO LEARN</a>
+          </div>
+        </div>
+        <div class="img_header">
+          <img src="cyphy.png" alt="picture" />
+        </div>
+      </div>
+    </div>
+
+    <section class="col-3">
+      <div class="container">
+        <div class="row">
+          <!--col-2 replaced with col on every child div-->
+          <div class="col">
+            <h2 class="h2_colored">Cheap</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae. Dicta, nostrum porro, modi praesentium voluptatibus quia magni nobis vel assumenda voluptates nesciunt necessitatibus! Voluptatum blanditiis minus odit sit nemo!</p>
+          </div>
+          <div class="col">
+            <h2 class="h2_colored">Quick</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae. Dicta, nostrum porro, modi praesentium voluptatibus quia magni nobis vel assumenda voluptates nesciunt necessitatibus! Voluptatum blanditiis minus odit sit nemo!</p>
+          </div>
+          <div class="col">
+            <h2 class="h2_colored">Quality</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae. Dicta, nostrum porro, modi praesentium voluptatibus quia magni nobis vel assumenda voluptates nesciunt necessitatibus! Voluptatum blanditiis minus odit sit nemo!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="col-2">
+      <div class="container row">
+        <!-- alternative: combine parent.container with child div.row - same result-->
+
+        <div class="col">
+          <h2>Cheap</h2>
+          <p>Voluptatum blanditiis minus odit sit nemo!</p>
+        </div>
+        <div class="col">
+          <h2>Quick</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae. Dicta, nostrum porro, modi praesentium voluptatibus quia magni nobis vel assumenda voluptates nesciunt necessitatibus! Voluptatum blanditiis minus odit sit nemo!</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

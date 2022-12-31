@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+////// For this challenge ///////
+
+- You will have to modify the HTML
+
+- You can add new classes in the HTML
+if you need to
+
+// Requirements
+1. The headings in the first row must be
+ a different color
+2. The two .col at the bottom must go next
+ to one another as per the design specs
+ provided
+3. The section at the bottom should have
+ a dark background color and a different
+ color of text
+4. I've removed the "gap" that I created 
+ during the demo, so you'll have to 
+ add it back in
+*/
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.3rem; /*all font. relative to root font-size which is 16px*/
+      }
+      h1 {
+        font-size: 3rem;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1050px;
+        margin: 0 auto;
+      }
+
+      .intro_background {
+        background: #23424a;
+        color: white;
+        padding: 100px 0;
+      }
+      .footer_background {
+        background: #447f8e;
+        color: white;
+        padding: 20px 0;
+      }
+
+      /* flexbox layout */
+      .row {
+        display: flex;
+        gap: 1em;
+        justify-content: space-between;
+      }
+      .col {
+        /*         display: flex;
+      flex-direction: column; */
+        width: 100%; /* flex: 1*/
+      }
+
+      .intro-content {
+        width: 65%;
+      }
+
+      .btn {
+        display: inline-block; /*use on btn made of a-tag*/
+        background: #38cfd9;
+        border-radius: 100px;
+        padding: 1.2rem 3.2rem;
+        /*margin: 1rem 0px; use margin on paragraph rathen than button to make button reusable*/
+        font-weight: 900;
+        color: #23424a;
+        text-decoration: none;
+      }
+      .btn:hover,
+      .btn:focus {
+        opacity: 0.7;
+      }
+
+      .img_header {
+        width: 35%;
+      }
+      img {
+        /* this will alloud image to shrink. img must be inside flex item div*/
+        width: 100%;
+      }
+      /*sidebar*/
+      .sidebar {
+        padding: 3em 0;
+        background: #136c72;
+        color: white;
+        text-align: center;
+        padding: 2em;
+        width: 35%;
+        margin: 2em 0;
+      }
+      .sidebar-title {
+        /*color: white;*/
+      }
+      /* section */
+      .section {
+        padding: 3em 0;
+        width: 65%;
+      }
+      .section-title {
+        color: #136c72;
+      }
+      /*navbar*/
+      header {
+        background: #136c72;
+        padding: 0.5em 0;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* border: 2px solid yellow; */
+        flex-grow: 1; /* flex: 1; width: 100%; */
+      }
+
+      .nav__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        gap: 1em;
+      }
+
+      .nav__link {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .nav__link--button {
+        background: #fff;
+        color: #136c72;
+        padding: 0.25em 1em;
+        border-radius: 10em;
+      }
+
+      .nav__link:hover {
+        opacity: 0.75;
+      }
+      .nav__item {
+        /*margin: 0 5px;*/
+      }
+
+      /*    this works, but use another method
+    .nav__item:nth-child(4) {
+      margin-left: auto;
+    } */
+
+      .nav__list:nth-child(1) {
+        /*:last-child did not work the same way*/
+        /*margin-left: auto;*/
+        /* border: 2px solid pink; */
+        margin: 0 auto;
+      }
+      /* nav bar for small screen */
+      #burger {
+        display: none;
+      }
+      .hidden-nav {
+
+      }
+      .hidden_nav__list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+      .hidden_nav__item {
+        text-align: center;
+        margin: 1.25em 0;        
+      }
+      #burger:checked ~ .hidden_nav {
+        display: none;
+      }
+      .hamb {
+        width: 36px;
+      }
+
+      .small {
+        display: none;
+      }
+      @media screen and (max-width: 800px) {
+        .small {
+          display: block;
+        }
+        .big {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="big">
+      <div class="container row">
+        <a href="#">
+          <img src="logo.svg" alt="logo" />
+        </a>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+          </ul>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link">Sign In</a></li>
+            <li class="nav__item"><a href="#" class="nav__link nav__link--button">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <header class="small">
+      <div class="hidden_nav_div row container">
+        <input type="checkbox" id="burger" />
+        <label for="burger"><img class="hamb" src="hamburger.png" alt="hamburger"></label>           
+
+        <nav class="hidden_nav">
+          <ul class="hidden_nav__list">
+            <li class="hidden_nav__item"><a href="#" class="nav__link">Home</a></li>
+            <li class="hidden_nav__item"><a href="#" class="nav__link">About</a></li>
+            <li class="hidden_nav__item"><a href="#" class="nav__link">Contact</a></li>
+            <li class="hidden_nav__item"><a href="#" class="nav__link">Sign In</a></li>
+            <li class="hidden_nav__item"><a href="#" class="nav__link nav__link--button">Sign up</a></li>
+          </ul>
+        </nav>
+
+        <a href="#"><img src="logo.svg" alt="logo" /></a>  
+      </div>
+    </header>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Idea is to have container with max width to keep it 
+  at constant width when above sertain screen width.
+  But boxes inside should have min width,
+  and fill area and stretch.-->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: grey;
+    }
+    header {
+      background-color: silver;
+      margin: 0 20%;
+    }
+    .container-horizontal {
+      display: flex;
+      max-width: 800px; 
+      /*
+      how about width: min(800px, 90%)
+      ? where was it appropriate to use max(a,b)?
+      */
+      margin: 0 auto;
+      padding: 20px;
+      background-color: antiquewhite;
+    }
+    .main-col {
+      flex: 2;
+      display: flex;
+      flex-wrap: wrap;
+      /*align-items: stretch; /*does not work on fixed height boxes*/
+      align-content: flex-start; /*to avoid uncontrollable gap between boxes vertically */
+      gap: 8px;
+      margin-right: 5%; 
+    }
+    .main-col .card
+     {
+      min-width: 120px;
+      height: 80px;
+      background-color: aquamarine;
+      border: 2px solid black;
+      border-radius: 4px;
+      flex: 1;
+    }
+
+    .side-col {
+      flex: 1;
+    }
+    .side-col .card{
+      min-width: 80px;
+      height: 80px;
+      background-color: palevioletred;
+      border: 2px solid black;
+      border-radius: 4px;
+    }
+
+    @media screen and (max-width: 768px) {
+      /* container horizontal shall be vertical on small screen */
+      .container-horizontal {
+        flex-direction: column;
+        flex-flow: column-reverse; /* to have side bar come at a top */        
+      }
+      .main-col {
+        margin-right: 0;
+      }
+      .side-col {
+        margin-bottom: 20px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header><p>Idea is to have container with max width to keep it 
+    at constant width when above sertain screen width.
+    But boxes inside should have min width,
+    and fill area and stretch.</p></header>
+  <div class="container-horizontal">
+    <div class="main-col">
+      <div class="card"><p>1.min-width:120px;</p></div>
+      <div class="card"><p>2</p></div>
+      <div class="card"><p>3</p></div>
+      <div class="card"><p>4</p></div>
+      <div class="card"><p>2</p></div>
+      <div class="card"><p>3</p></div>
+      <div class="card"><p>4</p></div>
+
+    </div>
+    <div class="side-col">
+      <div class="card">1</div>
+      <div class="card">2</div>
+      <div class="card">3</div>
+    </div>
+  </div>
+</body>
+</html>

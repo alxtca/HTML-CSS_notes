@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Perfect center. container { display: flex; justify-content: center; align-items: center;}*/
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 2rem;
+      }
+
+      form {
+        background-color: rgb(232, 231, 231);
+        padding: 1.25em;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        font-size: 1.25rem;
+        padding: 0px;
+        margin: 0px;
+        color: gray;
+      }
+
+      .form-group {
+        position: relative;
+        margin-bottom: 1em;
+      }
+      .form-group input {
+        position: relative;
+        z-index: 2;
+        font-size: 1.5rem;
+        padding: 0.25em;
+        border-color: rgb(240, 255, 239);
+        border-radius: 4px;
+        transition: all 0.2s;
+      }
+
+      .form-group input:focus {
+        color: #ffffff;
+        background-color: #555;
+        border-color: #80ff8b;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(4, 255, 0, 0.25);
+      }
+
+      button {
+        color: white;
+        width: 100%;
+        font-size: 1.25rem;
+        padding: 0.5em;
+        border: none;
+        border-radius: 5px;
+        background-color: green;
+        transition: all 0.3s;
+      }
+      button:hover,
+      button:focus {
+        color: #555;
+        font-weight: 700;
+        background-color: lightgreen;
+        box-shadow: 0 0 0 0.2rem rgba(52, 255, 25, 0.719);
+      }
+
+      .err {
+        color: red;
+        font-size: 1.2rem;
+        background-color: yellow;
+        border-radius: 3px 3px 0 0;
+      }
+      .err2 {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+
+        font-size: 1.25rem;
+        color: red;
+        border-radius: 4px;
+        background-color: yellow;
+        padding: 0px 0.75em;
+        padding-bottom: 1em;
+      }
+      .err3 {
+        position: absolute;
+        font-size: 1.25rem;
+        color: red;
+        padding-top: 4px;
+      }
+      /* tooltip style*/
+      .err4 {
+        padding: 2px;
+        position: relative; /*absolute for tooltip*/
+        top: 8px;
+        border-radius: 2px;
+        background-color: #fff;
+        font-size: 0.75em;
+        display: block; /*none for tooltip*/
+        border: 1px solid rgba(211, 4, 35, 0.8);
+      }
+      .err4:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        background-color: rgba(211, 4, 35, 0.8);
+        left: 20%;
+        top: -6px;
+        z-index: 0;
+      }
+      .err4:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        background-color: #fff;
+        left: 20%;
+        top: -5px;
+        z-index: 1;
+      }
+      .tooltip__dang {
+        color: #d30423;
+        box-shadow: 1px 1px 20px rgba(211, 4, 35, 0.3);
+      }
+      /*alt2 using pseudo element with thick border*/
+      .err5 {
+        font-size: 0.75em;
+        display: block;
+        position: relative;
+        margin-top: 8px;
+        border: 1px solid rgba(211, 4, 35, 0.8);
+        border-radius: 2px;
+        padding: 2px;
+        background-color: #fff;
+      }
+      .err5:before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 20%;
+        right: 0;
+        top: -16px;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-bottom-color: rgba(211, 4, 35, 0.8);
+      }
+
+      .err5:after {
+        content: "";
+        /* display: block; */
+        position: absolute;
+        left: 20%;
+        top: -15px;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-bottom-color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#">
+      <div class="form-group">
+        <label for="in1">Input name <small class="err">error msg in the label</small></label>
+        <input id="in1" type="text" value="Some name" />
+      </div>
+      <div class="form-group">
+        <label for="in2">Input name</label>
+        <input id="in2" type="text" value="Some Value" />
+        <div class="err2">Err msg in a div position: absolute</div>
+      </div>
+      <div class="form-group">
+        <label for="in3">Input name</label>
+        <input id="in3" type="text" value="Some Value" />
+        <div class="err3">Error message in a div below</div>
+      </div>
+      <div class="form-group">
+        <label for="in3">Input name</label>
+        <input id="in3" type="text" value="Some Value" />
+
+        <div class="err4 tooltip__dang">Error message in a div below</div>
+      </div>
+
+      <div class="form-group">
+        <label for="in3">Input name</label>
+        <input id="in3" type="text" value="Some Value" />
+
+        <div class="err5 tooltip__dang">Add icon to the input field</div>
+      </div>
+
+      <button type="submit">Submitt</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+html {
+  background-color: darkseagreen;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+header {
+  padding-top: 20px;
+  padding-bottom: 0;
+}
+
+header h1 {
+  margin: 0px;
+}
+
+header p {
+  margin: 0px;
+}
+
+.container {
+	width: 85%;
+  max-width: 940px;
+  box-sizing: border-box;
+	margin: 0 auto 0 auto;
+  background-color: aliceblue;
+  /*padding: 0 40px 0 40px;*/
+  padding: 0 30px; /* vertical horizontal */
+}
+
+.content-area {
+	border-top: 3px solid burlywood;
+  border-bottom: 3px solid burlywood;
+}
+
+.main-area {
+	width: 66%;
+  /* to stop padding to add to overall calculated width*/
+  box-sizing: border-box;
+	float: left;
+  padding-right: 30px;
+}
+
+.sidebar {
+	width: 34%;
+  box-sizing: border-box;
+  padding: 0 20px;
+	float: left;
+  background-color: burlywood;
+}
+
+/* parent can't see float elements */
+/* fix is to use clearfix: */
+.group:before,
+.group:after {
+	content: "";
+	display: table;
+}
+
+.group:after {
+	clear: both;
+}
+
+.group {
+	zoom: 1;
+}
+
+/* Site navigation*/
+
+.site-nav {
+  margin-top: 20px;
+}
+
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+}
+.site-nav li {
+  list-style: none;
+  float: left;
+}
+
+.site-nav a {
+  /*inline elements don't have vertical padding*/
+  display: block; /* block elements do */
+  text-decoration: none;
+  color: burlywood;
+  padding: 30px 20px;
+  margin: 0 2px;
+  border: 3px solid burlywood;
+  border-bottom: none;
+}
+.site-nav a:hover {
+  background-color: brown;
+}
+
+/* banner overlay */
+.image-banner {
+  position: relative; /* keep space reserved*/
+  left: 80px;
+  z-index: 0;
+  background-color: red;
+}
+/* to make image description fit exactly. vid#37*/
+.image-banner img {
+  display: block;
+  width: 300px;
+}
+.banner-description {
+  position: absolute; /* abandon space*/
+  bottom: 0px;
+  left: 0px;
+  color: white;
+  background-color: rgb(0,0,0,0.5);
+  /*max-width: 100%;*/
+  padding: 15px 20px;
+}

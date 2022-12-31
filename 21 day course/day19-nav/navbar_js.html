@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 
+////// For this challenge ///////
+
+- You will have to modify the HTML
+
+- You can add new classes in the HTML
+if you need to
+
+// Requirements
+1. The headings in the first row must be
+ a different color
+2. The two .col at the bottom must go next
+ to one another as per the design specs
+ provided
+3. The section at the bottom should have
+ a dark background color and a different
+ color of text
+4. I've removed the "gap" that I created 
+ during the demo, so you'll have to 
+ add it back in
+*/
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.3rem; /*all font. relative to root font-size which is 16px*/
+      }
+      h1 {
+        font-size: 3rem;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1050px;
+        margin: 0 auto;
+      }
+
+      .intro_background {
+        background: #23424a;
+        color: white;
+        padding: 100px 0;
+      }
+      .footer_background {
+        background: #447f8e;
+        color: white;
+        padding: 20px 0;
+      }
+
+      /* flexbox layout */
+      .row {
+        display: flex;
+        gap: 1em;
+        justify-content: space-between;
+      }
+      .col {
+        /*         display: flex;
+      flex-direction: column; */
+        width: 100%; /* flex: 1*/
+      }
+
+      .intro-content {
+        width: 65%;
+      }
+
+      .btn {
+        display: inline-block; /*use on btn made of a-tag*/
+        background: #38cfd9;
+        border-radius: 100px;
+        padding: 1.2rem 3.2rem;
+        /*margin: 1rem 0px; use margin on paragraph rathen than button to make button reusable*/
+        font-weight: 900;
+        color: #23424a;
+        text-decoration: none;
+      }
+      .btn:hover,
+      .btn:focus {
+        opacity: 0.7;
+      }
+
+      .img_header {
+        width: 35%;
+      }
+      img {
+        /* this will alloud image to shrink. img must be inside flex item div*/
+        width: 100%;
+      }
+      /*sidebar*/
+      .sidebar {
+        padding: 3em 0;
+        background: #136c72;
+        color: white;
+        text-align: center;
+        padding: 2em;
+        width: 35%;
+        margin: 2em 0;
+      }
+      .sidebar-title {
+        /*color: white;*/
+      }
+      /* section */
+      .section {
+        padding: 3em 0;
+        width: 65%;
+      }
+      .section-title {
+        color: #136c72;
+      }
+      /*navbar*/
+      header {
+        background: #136c72;
+        padding: 0.5em 0;
+      }
+
+      .nav {
+        display: none;
+        /* visibility: hidden; */
+      }
+      .nav-visible {
+        visibility: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* to keep whole nav in the center*/
+        gap: 1em;
+      }
+
+      .nav__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .nav__link {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .nav__link--button {
+        background: #fff;
+        color: #136c72;
+        padding: 0.25em 1em;
+        border-radius: 10em;
+      }
+
+      .nav__link:hover {
+        opacity: 0.75;
+      }
+      .nav__item {
+        /*margin: 0 5px;*/
+        justify-self: center;
+        flex-shrink: 0;
+      }
+
+      .nav-toggle {
+        cursor: pointer;
+        border: 0;
+        width: 3rem;
+        height: 3rem;
+        padding: 0em;
+        border-radius: 50%;
+        background: #072a2d;
+        color: white;
+        transition: opacity 250ms ease;
+
+        /* position: absolute; */
+        /* left: 0; */
+      }
+
+      .nav-toggle:focus,
+      .nav-toggle:hover {
+        opacity: 0.75;
+      }
+
+      .hamburger {
+        width: 50%;
+        position: relative;
+      }
+
+      .hamburger,
+      .hamburger::before,
+      .hamburger::after {
+        display: block;
+        margin: 0 auto;
+        height: 3px;
+        background: white;
+      }
+
+      .hamburger::before,
+      .hamburger::after {
+        content: "";
+        width: 100%;
+      }
+
+      .hamburger::before {
+        transform: translateY(-6px);
+      }
+
+      .hamburger::after {
+        transform: translateY(3px);
+      }
+
+      @media screen and (min-width: 740px) {
+        /*hide hamburger*/
+        .nav-toggle {
+          display: none;
+        }
+        .nav {
+          visibility: visible;
+          display: flex;
+          justify-content: space-between;
+          gap: 2em;
+          width: 70%;
+          /* how to shrink only when overflow? */
+        }
+        .nav__list {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container row">
+        <a href="#">
+          <img src="../logo.svg" alt="logo" />
+        </a>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+          </ul>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link">Sign In</a></li>
+            <li class="nav__item"><a href="#" class="nav__link nav__link--button">Sign up</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" onclick="showMenu()">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </header>
+    <div class="intro_background">
+      <div class="container row">
+        <div class="intro-content">
+          <h1>Responsive layouts don’t have to be a struggle</h1>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam ratione rerum, consectetur ipsum nobis dolor libero officiis eaque a! Illo debitis excepturi officia est qui. Nisi ex beatae ea ipsum.</p>
+          <div>
+            <a href="#" class="btn">I WANT TO LEARN</a>
+          </div>
+        </div>
+        <div class="img_header">
+          <img src="../cyphy.png" alt="picture" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container row">
+      <!--section-->
+      <div class="section">
+        <div class="col">
+          <!-- alternative: combine parent.container with child div.row - same result-->
+
+          <div class="col">
+            <h2 class="section-title">Quality designs made custom, on demand, just for you</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae. Dicta, nostrum porro, modi praesentium voluptatibus quia magni nobis vel assumenda voluptates nesciunt necessitatibus! Voluptatum blanditiis minus odit sit nemo!</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis nam molestiae impedit voluptatibus iusto quasi sed vero laborum est consequatur quam in veniam, aspernatur porro autem itaque asperiores quia cupiditate?</p>
+          </div>
+        </div>
+      </div>
+
+      <!--sidebar-->
+      <div class="sidebar">
+        <div class="col">
+          <!--section replaced with col on every child div-->
+          <div class="col">
+            <h2 class="sidebar-title">Cheap</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae. Dicta, nostrum porro, modi praesentium voluptatibus quia magni nobis vel assumenda voluptates nesciunt necessitatibus! Voluptatum blanditiis minus odit sit nemo!</p>
+          </div>
+          <div class="col">
+            <h2 class="sidebar-title">Quick</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae. Dicta, nostrum porro, modi praesentium voluptatibus quia magni nobis vel assumenda voluptates nesciunt necessitatibus! Voluptatum blanditiis minus odit sit nemo!</p>
+          </div>
+          <div class="col">
+            <h2 class="sidebar-title">Quality</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quae. Dicta, nostrum porro, modi praesentium voluptatibus quia magni nobis vel assumenda voluptates nesciunt necessitatibus! Voluptatum blanditiis minus odit sit nemo!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    //hamburger button function:
+    //turn .nav { visibility: visible/hidden } //visible when screen size>800px
+    function showMenu() {
+      document.querySelector(".nav").classList.toggle("nav-visible")
+    }
+  </script>
+</html>

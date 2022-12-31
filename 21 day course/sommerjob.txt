@@ -1,0 +1,3 @@
+idea todo for Anton during sommer 2022
+- I will create design files in figma
+- Anton need to replicate these in html&css

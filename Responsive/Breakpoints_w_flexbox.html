@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*
+        sm - mobile portrait: less than 640px
+        md - mobile landscape: > 640px
+        lg - tablet portrait: > 768px
+        xl - tablet landscape: > 1024px
+        xxl - laptop: > 1280px
+      */
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      :root {
+        --heightY: 500px;
+      }
+      html,
+      body { /*for .box heigh:96%; to work*/
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+      }
+      .box {
+        background-color: lightgray;
+        width: 96%;
+        /*height: 96%;*/
+        border: 1px solid black;
+        flex: 1 1 auto;
+      }
+      .inner {
+        height: 400px; /* for flex-direction: row;*/
+        flex: 1 1 400px; /* for flex-direction: column*/
+
+        background-color: aquamarine;
+        border: 1px solid black;
+        border-radius: 4px;
+
+        /* for contents: */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .sm {
+        display: flex;
+        flex-direction: column;
+      }
+      .md {
+        display: none;
+      }
+      .lg {
+        display: none;
+      }
+      .xl {
+        display: none;
+      }
+      .xxl {
+        display: none;
+      }
+      .sm, .md, .lg, .xl, .xxl {
+        gap: 10px;
+      }
+
+      /* md - mobile landscape: > 640px */
+      @media screen and (min-width: 640px) {
+        .sm {
+          display: none;
+        }
+        .md {
+          display: flex;
+        }
+      }
+      /* lg - tablet portrait: > 768px */
+      @media screen and (min-width: 768px) {
+        .md {
+          display: none;
+        }
+        .lg {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      /* xl - tablet landscape: > 1024px */
+      @media screen and (min-width: 1024px) {
+        .lg {
+          display: none;
+        }
+        .xl {
+          display: flex;
+        }
+      }
+
+      /* laptop - tablet landscape: > 1280px */
+      @media screen and (min-width: 1280px) {
+        .xl {
+          display: none;
+        }
+        .xxl {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box sm">
+      <div class="inner" style="background-color: lightskyblue"><p>mobile portrait: < 640px.</p></div>
+      <div class="inner"><h1>2</h1></div>
+    </div>
+
+    <div class="box md">
+      <div class="inner" style="background-color: lightcoral"><p>mobile landscape: > 640px</p></div>
+      <div class="inner"><h1>2</h1></div>
+    </div>
+
+    <div class="box lg">
+      <div class="inner" style="background-color: lightslategray"><p>tablet portrait: > 768px</p></div>
+      <div class="inner"><h1>2</h1></div>
+    </div>
+
+    <div class="box xl">
+      <div class="inner" style="background-color: orange"><p>tablet landscape: > 1024px</p></div>
+      <div class="inner"><h1>2</h1></div>
+    </div>
+
+    <div class="box xxl">
+      <div class="inner" style="background-color: pink"><p>Laptop: > 1280px</p></div>
+      <div class="inner"><h1>2</h1></div>
+    </div>
+  </body>
+</html>

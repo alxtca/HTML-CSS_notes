@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Roboto:ital,wght@0,300;0,400;1,900&display=swap" rel="stylesheet" />
+    <title>Document</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      :root {
+        --col1: #f3eed9;
+        --col2: #824936;
+        --col3: black;
+        --col4: white;
+      }
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        line-height: 1.6;
+      }
+      h4 {
+        font-size: 2rem;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-family: "Playfair Display", serif;
+      }
+      img {
+        display: block;
+        /* how to avoid changing  aspect ratio? 
+        It seem there is a tiny moment when it happens
+        1) object-fit: cover; - one way to fix that.
+        2) parent_container { display: block; } - to avoid stretching, as with flext container
+        */
+        max-width: 100%;
+        /* width: 100%; */ /* this adds different effect !!! */
+        margin: 0 auto;
+        /* object-fit: cover; */
+      }
+      .container {
+        width: min(1128px, 90%);
+        margin: 0 auto;
+      }
+      .section-1 {
+        background-color: var(--col1);
+        color: var(--col2);
+        padding: 3em 0;
+      }
+      .section-1 h1 {
+        font-size: 3.75rem;
+        font-weight: bold;
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        margin-top: 0;
+        line-height: 1.1;
+      }
+      @media screen and (max-width: 400px) {
+        .section-1 h1 {
+          font-size: 2.75rem;
+        }
+      }
+      .section-1 h6 {
+        text-align: center;
+        letter-spacing: 10px;
+        margin-bottom: 0px;
+        font-weight: 300;
+        font-size: 1.2rem;
+      }
+      .section-2 {
+        padding: 2em 0;
+      }
+      .section-2 h4 {
+        color: var(--col2);
+        text-align: center;
+      }
+      .section-3 {
+        background-color: var(--col3);
+        color: var(--col4);
+        padding: 2em 0;
+      }
+      .section-4 {
+        background-color: var(--col2);
+        color: var(--col1);
+        padding: 2em 0;
+      }
+
+      .img-container { /* to center img on small screen*/
+        display: flex;
+        border: 2px solid pink;
+      }
+
+      @media screen and (min-width: 600px) {
+        .img-container {
+          display: block; /* to avoid image stretching/ squizing*/
+        }
+        .row {
+          display: flex;
+          gap: 2em;
+        }
+        .row > * {
+          /* flex: 1; */
+          width: 50%;
+        }
+        .section-3 img {
+          margin: 0;
+        }
+        .section-4 img {
+          margin: 0;
+          margin-left: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section-1">
+      <div class="container">
+        <h6>lorem ipsum sit</h6>
+        <h1>Responsive layouts don't have to be a struggle</h1>
+      </div>
+    </section>
+
+    <section class="section-2">
+      <div class="container">
+        <h4 class="mid-h4">Quality Designs</h4>
+        <div class="row">
+          <!-- for future extensions add div.col -->
+          <div class="col">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt autem, molestias quae aspernatur architecto quod soluta dolore quis voluptatem veniam et corrupti minima nihil odit alias accusantium? Saepe, consequatur? Ratione!</p>
+          </div>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quia saepe provident alias sint laborum dolor quibusdam, amet similique omnis aut aspernatur perferendis, non nemo quaerat fugit. Molestiae, pariatur quibusdam.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-3">
+      <div class="container row">
+        <div>
+          <h4>Made custom for you</h4>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam iure nisi quibusdam reprehenderit numquam ut, libero maiores quis fuga soluta velit, commodi pariatur. Reiciendis explicabo alias, nostrum rerum illum nulla.</p>
+        </div>
+        <div class="img-container">
+          <img src="../image-01.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section-4">
+      <div class="container row">
+        <div class="img-container">
+          <img src="../image-02.jpg" alt="" />
+        </div>
+        <div>
+          <h4>Created with care</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore ipsa consequatur ipsum, magni perferendis repellat natus magnam praesentium nam voluptatibus suscipit illo aut voluptates modi commodi optio, quos similique assumenda!</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

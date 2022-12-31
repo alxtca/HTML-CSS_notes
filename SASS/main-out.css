@@ -1,0 +1,78 @@
+/*variable*/
+/* use mixins for media queries video#67 12:00*/
+/* these mixins can be keept in separate file and only be imported here*/
+.box {
+  border: 2px solid black;
+  background-color: black;
+}
+.box p {
+  background-color: red;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+body > p {
+  color: white;
+  background-color: blue;
+}
+@media screen and (max-width: 900px) {
+  body > p {
+    font-size: 150%;
+  }
+}
+@media screen and (max-width: 700px) {
+  body > p {
+    font-size: 120%;
+  }
+}
+
+/*sass nesting */
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  list-style: none;
+  float: left;
+  margin: 10px;
+}
+nav a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  background-color: aquamarine;
+  border: 2px solid blue;
+  border-radius: 4px;
+}
+nav a:hover {
+  background-color: aqua;
+  color: white;
+}
+
+/* sass inheritance */
+.btn-a, .btn-b {
+  display: inline;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid brown;
+  border-radius: 3px;
+  width: 120px;
+  background-image: linear-gradient(to bottom, white, red);
+}
+
+.btn-b {
+  /*background-color: bisque;*/
+  background-image: linear-gradient(to bottom, white, #ff6666);
+}
+
+.btn-b:hover {
+  /* possible to nest ? */
+  background-image: linear-gradient(to bottom, white, blue);
+}
+
+/* splitting in files */
+/* @import 'header'; will add css from _header.scss into final css*/
+
+/*# sourceMappingURL=main-out.css.map */

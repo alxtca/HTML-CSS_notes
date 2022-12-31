@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      :root {
+        font-family: 'Roboto', sans-serif;
+        /* font-size: 21px; use rather default 16px, and scale rest accordingly */
+      }
+
+      body {
+        margin: 0;
+        font-size: 1.3rem; /* relative to root font-size which is 16px*/
+      }
+
+      .intro_background {
+        /*intro*/
+        background: #23424A;
+        color: white;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1050px;
+        margin: 0 auto;
+      }
+
+      .intro-content {
+        width: 70%;
+        padding: 50px 0;
+      }
+      .intro-content h1 {
+        font-size: 3rem; /*3rem = 16px*3=48px*/
+      }
+      .intro-content button {
+        font-size: 1.3rem; /*why 1rem gives different size? -relative to parents 1.3rem*/
+        /* font-size: 1em; */
+        background: #38cfd9;        
+        border-radius: 31.5px;
+        padding: 1.2rem 3.2rem;
+        margin: 1rem 0px;
+        border: none;
+        font-weight: bold;
+        color: #23424A;
+      }
+      .btn {
+        display: inline-block; /*use on btn made of a-tag*/
+        /* font-size: 21px; no need, it automatically use parent font. right?*/
+        font-size: 1em;
+        background: #38cfd9;        
+        border-radius: 100px; /*big number for full round*/
+        padding: 1.2rem 3.2rem;
+        /*margin: 1rem 0px; use margin on paragraph rathen than button to make button reusable*/
+        /*border: none;*/
+        font-weight: 900;
+        color: #23424A;
+        text-decoration: none;
+      }
+      .btn:hover,
+      .btn:focus {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="intro_background">
+      <div class="container">
+        <div class="intro-content">
+          <h1>Responsive layouts don’t have to be a struggle</h1>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam ratione rerum, consectetur ipsum nobis dolor libero officiis eaque a! Illo debitis excepturi officia est qui. Nisi ex beatae ea ipsum.</p>
+          <div>
+            <a href="#"  class="btn">I WANT TO LEARN</a>
+          </div>
+          <button>I WANT BUTTON</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

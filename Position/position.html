@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    p {
+      line-height: 0.2;
+    }
+    div {
+      padding: 10px;
+    }
+
+    .item {
+      width: 160px;
+      height: 160px;
+    }
+    .first {
+      background-color: lightcoral;
+      position: relative;
+      left: 100px;
+    }
+    .second {
+      background-color: silver;
+      position: relative;
+      /*bottom: 100px;*/
+      left: -50px;
+    }
+    .third {
+      background-color: gold;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    .four {
+      background-color: lightseagreen;
+    }
+    .five {
+      background-color: aliceblue;
+      position: fixed;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+      background-color: lightskyblue;
+    }
+    .container h1 {
+      position:absolute;
+    }
+  </style>
+</head>
+<body>
+  <header><h1>Position</h1></header>
+  <h4>Main positions: </h4>
+  <ul>
+    <li>Static (default)</li>
+    <li>Relative</li>
+    <li>Absolute</li>
+    <li>Fixed</li>
+    <li>Sticky</li>
+  </ul>
+
+  <div class="container">
+    <h1>container ----------------- position absolute is ignored by other elements</h1>
+    <div class="item first">
+      <p>1 - position: relative;</p>
+      <p>left: 100px;</p>
+    </div>
+    <div class="item second">
+      <p>2 - position: relative;</p>
+      <p>left: -50px;</p>
+    </div>
+    <div class="item third">
+      <p>3 - position: absolute;</p>
+      <p>bottom: 0;</p>
+      <p>right: 0;</p>
+      <p>parent div ignores it</p>
+    </div>
+    <div class="item four">
+      <p>4 - position: static;</p>
+    </div>
+    <div class="item five">
+      <p>5 - position: fixed;</p>
+      <p>this should stay here </p>
+      even on scroll
+    </div>
+  </div>
+
+  <footer></footer>
+</body>
+</html>

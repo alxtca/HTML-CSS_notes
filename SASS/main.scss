@@ -1,0 +1,93 @@
+/*variable*/
+$redColor: red;
+$blueColor: blue;
+$whiteText: white;
+
+/* use mixins for media queries video#67 12:00*/
+@mixin sm-screen {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+@mixin md-screen {
+  @media screen and (max-width: 900px) {
+    @content;
+  }
+}
+
+
+/* these mixins can be keept in separate file and only be imported here*/
+@mixin verticalGradient($fromColor, $toColor) {
+  background-image: linear-gradient(to bottom, $fromColor, $toColor);
+}
+
+.box {
+  border: 2px solid black;
+  background-color: black;
+
+  p {
+    background-color: $redColor;
+  }
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  > p {
+    color: $whiteText;
+    background-color: $blueColor;
+    @include md-screen {
+      font-size: 150%;
+    }
+    @include sm-screen {
+      font-size: 120%;
+    }
+  }
+}
+/*sass nesting */
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+    float: left;
+    margin: 10px;
+  }
+  a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    background-color: aquamarine;
+    border: 2px solid blue;
+    border-radius: 4px;
+  }
+  a:hover {    
+    background-color: aqua;
+    color: white;
+  }
+}
+/* sass inheritance */
+.btn-a {
+  display: inline;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid brown;
+  border-radius: 3px;
+  width: 120px;
+  @include verticalGradient(white, red)
+}
+
+.btn-b {
+  @extend .btn-a;
+  /*background-color: bisque;*/
+  @include verticalGradient(white, lighten(red, 20%) );
+}
+.btn-b:hover { /* possible to nest ? */
+  @include verticalGradient(white, blue );
+}
+
+/* splitting in files */
+
+/* @import 'header'; will add css from _header.scss into final css*/

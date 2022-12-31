@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .item {
+      width: 160px;
+      height: 160px;
+      background: lightblue;
+      font-size: 40px;
+      border: 1px solid black;
+    }
+    .inline,
+    .block,
+    .inline-block {
+      background-color: lightpink;
+    }
+    .inline .item {
+      display: inline;
+    }
+    .inline-block .item {
+      display: inline-block;
+    }
+    .block .item {
+      display: block;
+    }
+
+
+  </style>
+</head>
+<body>
+  <header><h1>Display</h1></header>
+  <h4>Main display options: </h4>
+  <ul>
+    <li>None</li>
+    <li>Block</li>
+    <li>Inline</li>
+    <li>Inline-block</li>
+    <li>Flex</li>
+    <li>Grid</li>
+  </ul>
+  <div class="inline">
+    <h3>Inline: size depends on content. Placed on one line.</h3>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+  <div class="block">
+    <h3>Block: size depends on block size, and occupy whole width </h3>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+  <div class="inline-block">
+    <h3>Inline-block: size depends on block size, and placed on one line</h3>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+  </div>
+  <footer></footer>
+</body>
+</html>

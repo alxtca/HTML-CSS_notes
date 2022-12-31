@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1px;
+      }
+      body > * {
+        background: #eee;
+        padding: 3rem;
+        text-align: center;
+        /*border: 5px solid black;*/
+      }
+
+      .header,
+      .footer {
+        flex: 1 100%;
+      }
+      .main {
+        flex: 2 600px;
+      }
+      .sidebar {
+        flex: 1;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header class="header">Header</header>
+    <main class="main">Main
+      <p>This solution use flexbox only, no @media is used.</p>
+      <p>But I don't feel I have any control about when to trigger breakpoints.</p>
+    </main>
+    <aside class="sidebar">Sidebar</aside>
+    <footer class="footer">Footer</footer>
+  </body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        /* flex-grow: 1; might need for shorter content*/
+        min-height: 100vh; /* for short content, will keep footer at bottom*/
+      }
+      header {
+        height: 50px;
+        background-color: bisque;
+        text-align: center;
+      }
+      footer {
+        margin-top: auto;
+        height: 50px;
+        background-color: bisque;
+        text-align: center;
+      }
+      /*all header containers */
+      div[class^="header-"] {
+        background: lightgrey;
+        display: flex;
+      }
+      /*all items */
+      div > div {
+        background: orange;
+        height: 50px;
+        width: 22px;
+        margin: 6px;
+        /* how to align text to the center of the box? */
+        /* make each box to a flex container, then align&justify items inside*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*align-content:center;*/
+
+        border: 3px solid black;
+        border-radius: 5px;
+      }
+
+      .header-0 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 160px;
+      }
+      .header-0 .item-1 {
+        width: 100px;
+      }
+
+      .header-00 {
+        display: flex;
+        height: 160px;
+      }
+      .header-00 .item-1 {
+        width: 100px;
+        margin: auto;
+      }
+
+      .header-1 .item-1 {
+        order: 2;
+        flex: 1; /* to take all available space */
+      }
+      .header-1 .item-2 {
+        order: 1;
+        flex: 2;
+      }
+      .header-1 .item-3 {
+        order: 3;
+        flex: 1;
+      }
+      .header-1 .item-4 {
+        order: 4;
+        flex: 1;
+      }
+      .header-2 {
+        justify-content: flex-start;
+      }
+      .header-2 .item-4 {
+        margin-left: auto;
+      }
+      .header-2 div {
+        flex-basis: 10%; /* stretches items above items width */
+      }
+      .header-3 {
+        justify-content: flex-end;
+      }
+      .header-4 {
+        justify-content: space-between;
+      }
+      .header-5 {
+        justify-content: space-around;
+      }
+      .header-7 {
+        flex-wrap: wrap;
+      }
+      .header-8 {
+        justify-content: space-between;
+      }
+      .header-8 div {
+        flex-basis: 25%; /*same as width*/
+      }
+
+
+      /* line-break */
+      .header-7 hr {
+        flex-basis: 100%; height: 0; margin: 0; border: 0;
+      }
+      .plate {
+        display: flex;
+        background: grey;
+        height: 400px;
+        width: 50%;
+        align-items: stretch; /*no effect? */
+      }
+      .dash {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        height: 90%;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      .dash div {
+        width: 80%;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        flex: 1;
+      }
+      .table {
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+        height: 90%;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+      .table div {
+        margin-left: auto;
+        margin-right: auto;
+        width: 85%;
+      }
+      .row1:first-child {
+        background-color: red;
+        margin-top: 30px;
+      }
+
+      .row {
+        display: flex;
+        background-color: aquamarine;
+      }
+      /*evenly distribute all children*/
+      .row > * {
+        flex-basis: 100%;
+      }
+
+      .grid-ish {
+        width: 400px;
+        display: flex;
+        gap: 1em;
+        flex-wrap: wrap;
+        background-color: aquamarine;
+      }
+      .grid-ish > * {
+        flex: 1 1 5em;
+      }
+
+      .content-sidebar {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: aquamarine;
+      }
+      .content-sidebar > *:nth-child(1) {
+        flex: 1 1 68%;
+      }
+      .content-sidebar > *:nth-child(2) {
+        flex: 1 1 28%;
+        max-width: 30em;
+      }
+      /* flexbox columns */
+      .col1 {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: lightslategray;
+      }
+      section {
+        background-color: lightskyblue;
+        border: 1px solid black;  
+        border-radius: 4px;      
+      }
+      .col2 {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: lightslategray;
+        align-items: center;
+      }
+      .self-right {
+        align-self: flex-end;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <header>Header</header>
+    <p>The flex <strong>container</strong> properties are:</p>
+    <ul>
+      <li>flex-direction</li>      
+      <li>flex-wrap</li>
+      <li>flex-flow : shorthand property for setting both the flex-direction and flex-wrap properties (flex-flow: row wrap;)</li>
+      <li>justify-content : is used to align the flex items (on X-axis ---center--->) (flex-start, flex-end, center, space-around, space-between) </li>
+      <li>align-items : is used to align the flex items (on Y-axis)     (flex-start, flex-end, center, stretch, baseline) - when flex-direction: column; </li>
+      <li>align-content : is used to align the flex lines               (flex-start, center, stretch, space-around, space-between)</li>
+    </ul>
+    <p>The flex <strong>children</strong> properties are:</p>
+    <ul>
+      <li>order</li>
+      <li>flex-grow</li>
+      <li>flex-shrink</li>
+      <li>flex-basis</li>
+      <li>flex : is a shorthand property for the flex-grow, flex-shrink, and flex-basis properties (flex: 0 0 200px)</li>
+      <li>align-self: is used to align idividual items (flex-start, flex-end, center, stretch, baseline)</li>  
+    </ul>
+
+    <h4>Header 0. Perfect center. container { display: flex; justify-content: center; align-items: center;}</h4>
+    <div class="header-0">
+      <div class="item-1"></div>
+    </div>
+
+    <h4>Header 00. Perfect center. container { display: flex;} .children {margin: auto; }</h4>
+    <div class="header-00">
+      <div class="item-1"></div>
+    </div>
+
+    <h4>Header 1. container {display: flex}; .item-2 {flex: 2, order: 1}; other items {flex: 1};</h4>
+    <div class="header-1">
+      <div class="item-1">1</div>
+      <div class="item-2">2</div>
+      <div class="item-3">3</div>
+      <div class="item-4">4</div>
+    </div>
+    <h4>Header 2. .container {justify-content: flext-start;} box #4: {margin-left: auto} all boxes: {flex-basis: 10%;}</h4>
+    <div class="header-2">
+      <div class="item-1">1</div>
+      <div class="item-2">2</div>
+      <div class="item-3">3</div>
+      <div class="item-4">4</div>
+    </div>
+    <h4>Header 3. container { display: flex; justify-content: flex-end;}</h4>
+    <div class="header-3">
+      <div class="item-1">1</div>
+      <div class="item-2">2</div>
+      <div class="item-3">3</div>
+      <div class="item-4">4</div>
+    </div>
+    <h4>Header 4. container { display: flex; justify-content: space-between;}</h4>
+    <div class="header-4">
+      <div class="item-1">1</div>
+      <div class="item-2">2</div>
+      <div class="item-3">3</div>
+      <div class="item-4">4</div>
+    </div>
+    <h4>Header 5. container { display: flex; justify-content: space-around;}</h4>
+    <div class="header-5">
+      <div class="item-1">1</div>
+      <div class="item-2">2</div>
+      <div class="item-3">3</div>
+      <div class="item-4">4</div>
+    </div>
+    <h4>Header 6. container {display: flex;}</h4>
+    <div class="header-6">
+      <div class="item-1">1</div>
+      <div class="item-2">2</div>
+      <div class="item-3">3</div>
+      <div class="item-4">4</div>
+    </div>
+
+    <h4>Header 7. .header-7 {flex-wrap: wrap;}  .header-7 hr {flex-basis: 100%; height: 0; margin: 0; border: 0;}</h4>
+    <div class="header-7">
+      <div class="item-1">1</div>
+      <div class="item-2">2</div>
+      <hr>
+      <div class="item-3">3</div>
+      <div class="item-4">4</div>
+    </div>
+
+    <h4>Header 8. .container {justify-content: space-between;}  .children {flex-basis: 25%;} (same as width)</h4>
+    <div class="header-8">
+      <div class="item-1">1</div>
+      <div class="item-2">2</div>
+      <div class="item-3">3</div>
+    </div>
+
+    <h4>example 1. Equal with collumns with flex-basis: 100%</h4>
+    <div class="row">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+
+    <h4>example 2. Like a grid. With gap.</h4>
+    <div class="grid-ish">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+
+    <h4>example 3. Side bar.</h4>
+    <div class="content-sidebar">
+      <div>70%</div>
+      <div>30%</div>
+    </div>
+
+    <h1>Flexbox columns</h1>
+
+    <h4>Default flexbox columns</h4>
+    <div class="col1">
+      <section class=""><p>some content</p></section>
+      <section class="">short</section>
+      <section class=""><p>000 999 000 andalongword</p></section>
+    </div>
+
+    <h4>.parent {align-items: center;}</h4>
+    <div class="col2">
+      <section class=""><p>some content</p></section>
+      <section class="">short</section>
+      <section class=""><p>000 999 000 andalongword</p></section>
+    </div>
+
+    <h4>.parent {align-items: center;} .child {align-self: flex-end;}</h4>
+    <div class="col2">
+      <section class=""><p>some content</p></section>
+      <section class="self-right">short</section>
+      <section class=""><p>000 999 000 andalongword</p></section>
+    </div>
+
+    <h4>Plate with dashboard and playground:</h4>
+    <div class="plate">
+      <div class="dash">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+      </div>
+      <div class="table">
+        <div class="row1"></div>
+        <div class="row1"></div>
+        <div class="row1"></div>
+        <div class="row1"></div>
+      </div>
+    </div>
+    <footer>
+      Footer
+    </footer>
+  </body>
+</html>

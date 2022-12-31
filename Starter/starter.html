@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starter template</title>
+    <style>
+      :root {
+        --color1 : #23424a;
+        --color2 : whitesmoke;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* for short content, will keep footer at bottom*/
+      }      
+      header {
+        background-color: var(--color1);
+        color: var(--color2);
+        padding: 2rem;        
+      }
+      header h1 {
+        font-size: 4rem;
+      }
+      footer {
+        margin-top: auto;
+        background-color: var(--color1);
+        color: var(--color2);
+        text-align: center;
+        padding: 0.75rem;
+      }
+      article {
+        padding: 1.25rem;
+        font-size: 1.25rem;       
+      }
+      .brd {
+        border-left: 2px solid green;
+        border-right: 2px solid green;
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+      .container {        
+        width: min(96%, 750px); /* width: 96%; max-width: 750px; */
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Header</h1>
+      </div>
+    </header>
+
+    <article>
+      <div class="container brd">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consequatur itaque repellat provident ad consequuntur facilis. A vero iure quia qui officia animi repellat quas, voluptas laborum mollitia expedita similique?
+      </div>
+    </article>
+
+    <footer>Footer</footer>
+  </body>
+</html>

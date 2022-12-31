@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset="utf-8">
+		<title>Learning CSS</title>
+		<style>
+			html {
+	background-color: #869960;
+	line-height: 1.7;
+}
+
+body {
+	font-family: 'PTSans', Arial, sans-serif;
+	font-size: 15px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* Birds Background Demo */
+.birds {
+	background: #c2bbb1 url(../images/bird.jpg) center center no-repeat;
+	background-size: cover;
+	text-align: center;
+	padding: 100px 0;
+}
+
+.birds p {
+	margin: 0;
+	background-color: rgba(0, 0, 0, .7);
+	color: #FFF;
+	text-shadow: 1px 1px 0 #000;
+	display: inline-block;
+	padding: 10px;
+}
+
+/* End Birds Demo */
+
+/* Main Column Typography */
+.main-area h2 {
+	font-size: 200%;
+	font-weight: normal;
+	font-style: italic;
+	letter-spacing: 4px;
+	word-spacing: 10px;
+	text-transform: lowercase;
+}
+
+.main-area p {
+	font-size: 108%;
+}
+
+/* Banner Overlay */
+.image-banner {
+	position: relative;
+}
+
+.image-banner img {
+	display: block;
+}
+
+.banner-description {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #FFF;
+	background-color: rgba(0, 0, 0, .65);
+	padding: 15px 25px;
+}
+
+.container {
+	width: 940px;
+	margin-left: auto;
+	margin-right: auto;
+	background: url(../images/color-tile.png) left bottom repeat-x, #FFF url(../images/color-tile.png) left top repeat-x;
+	padding-top: 15px;
+	padding-left: 40px;
+	box-sizing: border-box;
+}
+
+header {
+	padding-top: 20px;
+	color: #617140;
+	background-image: url(../images/flower.jpg);
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+
+header h1 {
+	margin: 0;
+	font-weight: normal;
+	font-size: 165%;
+}
+
+header p {
+	margin: 0;
+}
+
+/* Site Navigation */
+.site-nav {
+	margin-top: 20px;
+}
+
+.site-nav ul {
+	margin: 0;
+	padding: 0;
+}
+
+.site-nav li {
+	list-style: none;
+	float: left;
+	margin-right: 5px;
+}
+
+.site-nav a {
+	display: block;
+	color: #617140;
+	text-decoration: none;
+	padding: 10px 20px;
+	background-color: #FFF;
+	border: 3px solid #e5e9dc;
+	border-bottom: none;
+}
+
+.site-nav a:hover {
+	background-color: #e5e9dc;
+}
+
+/* End Site Navigation */
+
+
+.content-area {
+	border-top: 3px solid #e5e9dc;
+	border-bottom: 3px solid #e5e9dc;
+}
+
+.main-area {
+	width: 66%;
+	float: left;
+	padding-right: 40px;
+	box-sizing: border-box;
+}
+
+.sidebar {
+	width: 34%;
+	float: left;
+	padding: 20px 40px;
+	box-sizing: border-box;
+	font-size: 114%;
+	background-color: #e5e9dc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#e5e9dc), to(#FFF));
+	background-image: -webkit-linear-gradient(top, #e5e9dc, #FFF);
+	background-image: -moz-linear-gradient(top, #e5e9dc, #FFF);
+	background-image: -ms-linear-gradient(top, #e5e9dc, #FFF);
+	background-image: -o-linear-gradient(top, #e5e9dc, #FFF);
+	background-image: linear-gradient(to bottom, #e5e9dc, #FFF);
+}
+
+
+/* UI Menu */
+.ui-menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+.ui-menu li {
+	float: left;
+	list-style: none;
+	margin-right: 20px;
+}
+
+.ui-menu a {
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-position: top left;
+	background-image: url(../images/sprites.png);
+	text-indent: -9999px;/* to hide text, far to the left */
+	background-repeat: no-repeat;
+}
+
+.ui-home a:hover {background-position: -50px 0;}
+
+.ui-profile a {background-position: 0 -50px;}
+.ui-profile a:hover {background-position: -50px -50px;}
+
+.ui-settings a {background-position: 0 -100px;}
+.ui-settings a:hover {background-position: -50px -100px;}
+
+
+
+footer {
+	text-align: center;
+	font-size: 85%;
+	color: #999;
+	padding-bottom: 20px;
+	padding-top: 20px;
+}
+
+.fix {
+	clear: both;
+}
+
+.group:before,
+.group:after {
+	content: "";
+	display: table;
+}
+
+.group:after {
+	clear: both;
+}
+
+.group {
+	zoom: 1;
+}
+		</style>
+	</head>
+	
+	<body>
+		
+		<div class="container">
+			<header>
+				<h1>Website Title</h1>
+				<p>Website slogan included here.</p>
+				
+				<nav class="site-nav">
+					<ul class="group">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>
+				</nav>
+			</header>
+			
+			<div class="content-area group">
+				
+				<div class="main-area">
+					<h2>Main Column Heading</h2>
+					
+					<nav class="ui-menu">
+						<ul class="group">
+							<li class="ui-home"><a href="#">Home</a></li>
+							<li class="ui-profile"><a href="#">Profile</a></li>
+							<li class="ui-settings"><a href="#">Settings</a></li>
+						</ul>
+					</nav>
+					
+					<p>This is the main area (or column). Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+					
+					<p>nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					
+					<ul>
+						<li>Example list item</li>
+						<li>Example list item</li>
+						<li>Example list item</li>
+						<li>Example list item</li>
+						<li>Example list item</li>
+						<li>Example list item</li>
+					</ul>
+					
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					
+					<p>In reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+				</div>
+
+				<aside class="sidebar">
+					<p>This is the sidebar. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p>
+				</aside>
+				
+			</div>
+
+			<footer>
+				<p>&copy; 2014 - This is the footer.</p>
+			</footer>
+		</div>
+		
+	</body>
+	
+</html>

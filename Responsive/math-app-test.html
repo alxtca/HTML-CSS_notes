@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /*
+        sm - mobile portrait: less than 640px
+        md - mobile landscape: > 640px
+        lg - tablet portrait: > 768px
+        xl - tablet landscape: > 1024px
+        xxl - laptop: > 1280px
+      */
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      :root {
+        --heightY: 500px;
+      }
+      html,
+      body { /*for .box heigh:96%; to work*/
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+      }
+      .box {
+        background-color: lightgray;
+        width: 96%;
+        /*height: 96%;*/
+        border: 1px solid black;
+        flex: 1 1 auto;
+      }
+      .inner {
+        height: 400px; /* for flex-direction: row;*/
+        flex: 1 1 400px; /* for flex-direction: column*/
+
+        background-color: aquamarine;
+        border: 1px solid black;
+        border-radius: 4px;
+
+        /* for contents: */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .sm {
+        display: flex;
+        flex-direction: column;
+      }
+      .inner:nth-child(1) {
+        background-color: lightseagreen;
+      }
+      /* these dont exist until breakpoints !
+      once enabled, they overwrite flex-direction
+      .md {      }
+      .lg {      }
+      .xl {      }
+      .xxl {      }
+*/
+      .sm, .md, .lg, .xl, .xxl {
+        gap: 10px;
+      }
+
+      /* md - mobile landscape: > 640px */
+      @media screen and (min-width: 640px) {
+        .md {
+          flex-direction: row;
+        }
+        .inner:nth-child(1) {
+          background-color: lightcoral;
+        }
+      }
+      /* lg - tablet portrait: > 768px */
+      @media screen and (min-width: 768px) {
+        .lg {
+          flex-direction: column;
+        }
+        .inner:nth-child(1) {
+          background-color: yellowgreen;
+        }
+      }
+
+      /* xl - tablet landscape: > 1024px */
+      @media screen and (min-width: 1024px) {
+        .xl {
+          flex-direction: row;
+        }
+        .inner:nth-child(1) {
+          background-color: orange;
+        }
+      }
+
+      /* laptop - tablet landscape: > 1280px */
+      @media screen and (min-width: 1280px) {
+        .xxl {
+          display: flex;
+        }
+        .inner:nth-child(1) {
+          background-color: lightslategray;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box sm md lg xl xxl">
+      <div class="inner"><h1>1</h1></div>
+      <div class="inner"><h1>2</h1></div>
+    </div>
+  </body>
+</html>
